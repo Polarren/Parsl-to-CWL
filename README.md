@@ -2,8 +2,8 @@
 This is a repository where I try to use Parsl's monitoring feature to reproduce a Parsl program's progress in CWL.
 
 # What's going on:
-I wrote a script `workflow_generator.py` that can interpret monitoring.db of a parsl program and rewrite the workflow in CWL. 
-The script is not fully developed but can accomplish some writing tasks of a CWL workflow.
+I wrote a script `workflow_generator.py` that can interpret monitoring.db produced by a parsl program and rewrite the parsl workflow in CWL. 
+The script is not fully developed but it can accomplish some writing tasks of a CWL workflow.
 
 # monitor.py
 This is an example Parsl program that generates five .txt files and cat them into another file. 
