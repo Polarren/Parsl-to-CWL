@@ -1,4 +1,4 @@
-# Code from db_manager.py
+# Code from db_manager.py 
 import logging
 import threading
 import queue
