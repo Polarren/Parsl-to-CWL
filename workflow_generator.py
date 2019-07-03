@@ -213,8 +213,10 @@ def interpret_task_depends(tasks, task_depends):
 
 # Auto_workflow_1 generation
 
-# Define CommandLineTools: Currently I assume that  
-# cwl versions of bash_apps are written manually 
+# Define CommandLineTools: generate and concat are the two bash_apps I used in monitor.py
+# Since I now assume that bash_apps are translated into cwl manually, so
+# I need a list of CommandLineTools telling me what are the available cwls
+# I declare them here as cwl_CommandLineTools and store them in the variable 'clts'
 generate_inputs = [cwl_string('')]
 generate_outputs = [cwl_File('')]
 generate = cwl_CommandLineTool('generate','echo',generate_inputs, generate_outputs)   
@@ -231,18 +233,18 @@ Task = db.session.query(db.Task)
 
 
 # Define the Workflow
-    # Determine inputs and outputs of the workflow
+
+# Determine inputs and outputs of the workflow
+# The inputs and outputs of the workflow are supposed to be figured out by the program reading monitoring.db,
+# but I'm still working on it, so I temporarily fill them in my cwl_Workflow data type manually
 auto_workflow_1_inputs = [[cwl_string('random-0.txt'),cwl_string('random-1.txt'),cwl_string('random-2.txt')]]
 auto_workflow_1_outputs = [cwl_File('concat/output_0')]
 
-    # Determine steps of the workflow
-# auto_workflow_1_steps = [cwl_step(generate, inputs=['input_0'], outputs=['output_0'], scatter='input_0'),
-#                          cwl_step(concat, inputs=['generate/output_0'], outputs=['output_0'])]
-#auto_workflow_1 = cwl_Workflow(inputs=auto_workflow_1_inputs, outputs=auto_workflow_1_outputs,steps=auto_workflow_1_steps)
-
+# Determine steps of the workflow
+# Create the cwl_CommandLineTool that will be rendered (written by machine) into a cwl workflow file called auto_workflow_1.cwl
 auto_workflow_1 = cwl_Workflow(inputs=auto_workflow_1_inputs, outputs=auto_workflow_1_outputs,steps=[])
-add_indep_steps(Task, db, auto_workflow_1, clts)
-add_dep_steps(Task, db, auto_workflow_1, clts)
+add_indep_steps(Task, db, auto_workflow_1, clts) # Add independent steps to the workflow
+add_dep_steps(Task, db, auto_workflow_1, clts) # Add dependent steps to the workflow
 
-
+# Apply the render procedure
 render_cwl("auto_workflow_1.cwl",auto_workflow_1)
