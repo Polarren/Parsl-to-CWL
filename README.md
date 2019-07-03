@@ -12,13 +12,12 @@ The script is not fully developed but it can accomplish some writing tasks of a 
 ## Description of files
 ### monitor.py
 This is an example Parsl program that generates five .txt files and cat them into another file. 
-
 ### workflow_1 (directory)
 This directory contains a CWL workflow manually written that reproduces the workflow run in `monitor.py`
-
+### auto_workflow_1 (directory)
+This is the workflow *written by my program* that assembles the manually written workflow `'workflow_1.cwl'`.
 ### workflow_generator.py
 This is the program that does interpreting of monitoring.db and auto-writing of a workflow. 
-
 ### monitoring.db
 This is the database after running `monitor.py`
 
