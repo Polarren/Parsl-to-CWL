@@ -141,7 +141,7 @@ def render_steps(filename, cwl_workflow):
             f.write("      [{0}]\n".format(step.outputs[i]))
     f.close()
 
-
+ 
 ################################  Interpreting  #####################################
 # Functions that extract information from Database: monitoring.db
 # and fill in the class cwl_Workflow 
