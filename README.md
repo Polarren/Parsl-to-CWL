@@ -7,6 +7,7 @@ To go through a whole procedure of how my code works, here are the steps.
 2. Run the Python script named workflow.py, which contains definitions of several bash_apps and calls to them to produce a workflow. The outputs of different steps are stored in different `*.txt` files, and the result of the final step is stored in `result.txt`. Moreover, monitoring.db contains task information after running the script.
 3. Run the Python script named generator.py, which will interpret monitoring.db and automatically write a CWL workflow that imitates the Parsl workflow and produces the same result.
 4. To run the CWL workflow, type `cwl-runner auto_workflow.cwl auto_workflow.yml`.
+### Workflow executed in the Deomo
 
 ## How to utilize this repository
 1. `generator.py` is used to produce a CWL workflow, assuming a monitoring.db exists in the same directory as it does. 
