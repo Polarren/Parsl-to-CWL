@@ -1,0 +1,7 @@
+input_0: 
+  class: File
+  path: file1.txt
+input_1: 
+  class: File
+  path: file2.txt
+input_2: NCSA.txt
