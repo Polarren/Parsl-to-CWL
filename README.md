@@ -8,7 +8,7 @@ To go through a whole procedure of how my code works, here are the steps.
 3. Run the Python script named generator.py, which will interpret monitoring.db and automatically write a CWL workflow that imitates the Parsl workflow and produces the same result.
 4. To run the CWL workflow, type `cwl-runner auto_workflow.cwl auto_workflow.yml`.
 ### Workflow executed in the Deomo
-
+![image](https://github.com/Polarren/Parsl-to-CWL/blob/master/Workflow.PNG）
 ## How to utilize this repository
 1. `generator.py` is used to produce a CWL workflow, assuming a monitoring.db exists in the same directory as it does. 
 2. To successfully run `generator.py`, you need to modify the script where `clt` is defined. You need to specify the cwl_CommandLineTools in the way that they do the same thing as bash_apps.
